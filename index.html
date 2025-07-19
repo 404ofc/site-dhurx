@@ -12,7 +12,7 @@
       background-color: #0d0d0d;
       color: #00ff00;
       overflow-x: hidden;
-      transform: scale(1.1); /* Zoom aplicado aqui */
+      transform: scale(1.1);
       transform-origin: top left;
     }
 
@@ -109,6 +109,8 @@
 
     <button class="button" onclick="connectBot()">Contato do Bot</button>
     <button class="button" onclick="connectOwner()">Contato do Dono</button>
+    <br>
+    <button class="button" onclick="connectGroup()">Grupo OFC</button>
 
     <div class="output" id="outputText"></div>
 
@@ -142,7 +144,14 @@
       }, 2000);
     }
 
-    // Boot effect
+    function connectGroup() {
+      const output = document.getElementById("outputText");
+      output.innerText = "🔒 Redirecionando para grupo oficial...\n✔️ Aguardando abertura do WhatsApp...";
+      setTimeout(() => {
+        window.location.href = "https://chat.whatsapp.com/Fuc6g3eix9TBV7wMoIpD3A";
+      }, 2000);
+    }
+
     const bootLines = [
       "[BOOT] Inicializando sistema...",
       "[OK] Carregando interface hacker...",
@@ -162,7 +171,6 @@
     }
     typeBootLine();
 
-    // Fake counters
     let userCount = 1942, groupCount = 73, commandCount = 12830;
     setInterval(() => {
       document.getElementById("users").innerText = userCount++;
