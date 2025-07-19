@@ -113,12 +113,12 @@
     <h1>Dhurx Bot</h1>
     <h2>Criado por 404&gt;_</h2>
 
-    <button class="button" onclick="goToRedirectPage('https://wa.me/5511979938365', 'Você está sendo redirecionado para conversar com o bot.')">Contato do Bot</button>
-    <button class="button" onclick="goToRedirectPage('https://wa.me/554399276593', 'Você está sendo redirecionado para falar com o dono do bot.')">Contato do Dono</button>
+    <button class="button" onclick="connectBot()">Contato do Bot</button>
+    <button class="button" onclick="connectOwner()">Contato do Dono</button>
     <br>
-    <button class="button" onclick="goToRedirectPage('https://chat.whatsapp.com/Fuc6g3eix9TBV7wMoIpD3A', 'Você está sendo redirecionado para o grupo oficial do bot.')">Grupo OFC</button>
+    <button class="button" onclick="connectGroup()">Grupo OFC</button>
 
-    <!-- BLOCO ADD BOT -->
+    <!-- 🔽 BLOCO ADD BOT -->
     <div style="margin-top: 40px;">
       <p>Para adicionar o bot em seu grupo aperte o botão abaixo</p>
       <button class="button" onclick="addBot()">ADD BOT</button>
@@ -137,7 +137,7 @@
       Comandos processados: <span id="commands">0</span>
     </div>
 
-    <!-- BLOCO DE DOAÇÃO -->
+    <!-- 🔽 BLOCO DE DOAÇÃO -->
     <div style="margin-top: 60px;">
       <p>Gostou do Dhurx Bot? Considere fazer uma doação de qualquer valor para apoiar nosso projeto!</p>
       <button class="button" onclick="mostrarPix()">FAZER DOAÇÃO</button>
@@ -153,10 +153,28 @@
   </div>
 
   <script>
-    function goToRedirectPage(url, texto) {
-      const destino = encodeURIComponent(url);
-      const mensagem = encodeURIComponent(texto);
-      window.location.href = `grupo.html?destino=${destino}&texto=${mensagem}`;
+    function connectBot() {
+      const output = document.getElementById("outputText");
+      output.innerText = "🔒 Redirecionando canal seguro...\n✔️ Conexão com Dhurx Bot estabelecida.";
+      setTimeout(() => {
+        window.location.href = "https://wa.me/5511979938365";
+      }, 2000);
+    }
+
+    function connectOwner() {
+      const output = document.getElementById("outputText");
+      output.innerText = "🔒 Redirecionando canal seguro...\n✔️ Conexão com 404>_ estabelecida.";
+      setTimeout(() => {
+        window.location.href = "https://wa.me/554399276593";
+      }, 2000);
+    }
+
+    function connectGroup() {
+      const output = document.getElementById("outputText");
+      output.innerText = "🔒 Redirecionando para grupo oficial...\n✔️ Aguardando abertura do WhatsApp...";
+      setTimeout(() => {
+        window.location.href = "https://chat.whatsapp.com/Fuc6g3eix9TBV7wMoIpD3A";
+      }, 2000);
     }
 
     function addBot() {
