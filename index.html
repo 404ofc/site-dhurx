@@ -118,7 +118,7 @@
     <br>
     <button class="button" onclick="connectGroup()">Grupo OFC</button>
 
-    <!-- 🔽 NOVO BLOCO ADICIONADO AQUI -->
+    <!-- 🔽 BLOCO ADD BOT -->
     <div style="margin-top: 40px;">
       <p>Para adicionar o bot em seu grupo aperte o botão abaixo</p>
       <button class="button" onclick="addBot()">ADD BOT</button>
@@ -135,6 +135,18 @@
       Usuários ativos: <span id="users">0</span><br>
       Grupos conectados: <span id="groups">0</span><br>
       Comandos processados: <span id="commands">0</span>
+    </div>
+
+    <!-- 🔽 BLOCO DE DOAÇÃO -->
+    <div style="margin-top: 60px;">
+      <p>Gostou do Dhurx Bot? Considere fazer uma doação de qualquer valor para apoiar nosso projeto!</p>
+      <button class="button" onclick="mostrarPix()">FAZER DOAÇÃO</button>
+      <div id="pixContainer" style="margin-top: 10px; display: none;">
+        <p>💚 Chave Pix: <strong id="pixKey">duhorus@jim.com</strong></p>
+        <input type="text" value="duhorus@jim.com" id="pixHiddenInput" style="position:absolute; left:-9999px;">
+        <button class="button" onclick="copiarPix()">Copiar</button>
+        <span id="copiadoMsg" style="margin-left: 10px; color: green; display: none;">Copiado!</span>
+      </div>
     </div>
 
     <p style="margin-top: 60px; font-size: 12px; opacity: 0.6;">&copy; 2025 Dhurx Bot. Todos os direitos reservados.</p>
@@ -165,10 +177,25 @@
       }, 2000);
     }
 
-    // 🔽 NOVA FUNÇÃO ADD BOT
     function addBot() {
       const message = encodeURIComponent("/convite <link do seu grupo>");
       window.location.href = `https://wa.me/5511979938365?text=${message}`;
+    }
+
+    function mostrarPix() {
+      document.getElementById("pixContainer").style.display = "block";
+    }
+
+    function copiarPix() {
+      const input = document.getElementById("pixHiddenInput");
+      input.select();
+      document.execCommand("copy");
+
+      const msg = document.getElementById("copiadoMsg");
+      msg.style.display = "inline";
+      setTimeout(() => {
+        msg.style.display = "none";
+      }, 2000);
     }
 
     const bootLines = [
