@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Redirecionando...</title>
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2 id="mensagem">Aguarde...</h2>
+  <p>Você será redirecionado automaticamente em instantes.</p>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const destino = params.get("destino");
+    const texto = params.get("texto");
+
+    if (texto) document.getElementById("mensagem").innerText = texto;
+
+    if (destino) {
+      setTimeout(() => {
+        window.location.href = destino;
+      }, 4000); // Redireciona após 4 segundos
+    }
+  </script>
+</body>
+</html>
