@@ -98,6 +98,12 @@
       color: #00ff00;
       text-shadow: 0 0 5px #00ff00;
     }
+
+    .small-text {
+      font-size: 14px;
+      color: #00ff00;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
@@ -111,6 +117,13 @@
     <button class="button" onclick="connectOwner()">Contato do Dono</button>
     <br>
     <button class="button" onclick="connectGroup()">Grupo OFC</button>
+
+    <!-- 🔽 NOVO BLOCO ADICIONADO AQUI -->
+    <div style="margin-top: 40px;">
+      <p>Para adicionar o bot em seu grupo aperte o botão abaixo</p>
+      <button class="button" onclick="addBot()">ADD BOT</button>
+      <p class="small-text">Após enviar o comando para o bot com seu link e receber o retorno que foi enviado para aprovação, retorne para o site e entre em contato com o dono!!!</p>
+    </div>
 
     <div class="output" id="outputText"></div>
 
@@ -150,6 +163,12 @@
       setTimeout(() => {
         window.location.href = "https://chat.whatsapp.com/Fuc6g3eix9TBV7wMoIpD3A";
       }, 2000);
+    }
+
+    // 🔽 NOVA FUNÇÃO ADD BOT
+    function addBot() {
+      const message = encodeURIComponent("/convite <link do seu grupo>");
+      window.location.href = `https://wa.me/5511979938365?text=${message}`;
     }
 
     const bootLines = [
